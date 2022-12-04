@@ -1,0 +1,187 @@
+{
+    "Movies": [
+      {
+        "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "Genres":["Drama"],
+        "Image": "src/moviePhotos/The Shawshank Redemption.jpg",
+        "Name": "The Shawshank Redemption",
+        "Director":"Frank Darabont",
+        "Ranking":1,
+        "Year Released":1994
+      },
+      {
+        "Description": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
+        "Genres":["Crime","Drama"],
+        "Image": "src/moviePhotos/The Godfather.jpg",
+        "Name": "The Godfather",
+        "Director":"Francis Ford Coppola",
+        "Ranking":2, 
+        "Year Released":1972
+      },
+      {
+        "Description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "Genres":["Action","Crime","Drama","Thriller"],
+        "Image": "src/moviePhotos/The Dark Knight.jpg",
+        "Name": "The Dark Knight",
+        "Director":"Christopher Nolan",
+        "Ranking":3,
+        "Year Released":2008
+      },
+      {
+        "Description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+        "Genres":["Crime","Drama"],
+        "Image": "src/moviePhotos/The Godfather Part II.jpg",
+        "Name": "The Godfather Part II",
+        "Director":"Francis Ford Coppola",
+        "Ranking":4,
+        "Year Released":1974
+      },
+      {
+        "Description": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+        "Genres":["Crime","Drama"],
+        "Image": "src/moviePhotos/12 Angry Men.jpg",
+        "Name": "12 Angry Men",
+        "Director":"Sidney Lumet",
+        "Ranking":5,
+        "Year Released":1957
+      },
+      {
+        "Description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "Genres":["Biography","Drama","History"],
+        "Image": "src/moviePhotos/Schindlers List.jpg",
+        "Name": "Schindler's List",
+        "Director":"Steven Spielberg",
+        "Ranking":6,
+        "Year Released":1993
+
+      },
+      {
+        "Description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+        "Genres":["Action","Adventure"],
+        "Image": "src/moviePhotos/The Lord of the Rings_The Return of The King.jpg",
+        "Name": "The Lord of the Rings: The Return of the King",
+        "Director":"Peter Jackson",
+        "Ranking":7,
+        "Year Released":2003
+      },
+      {
+        "Description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "Genres":["Crime","Drama"],
+        "Image": "src/moviePhotos/Pulp Fiction.jpg",
+        "Name": "Pulp Fiction",
+        "Director":"Quentin Tarantino",
+        "Ranking":8,
+        "Year Released":1994
+      },
+      {
+        "Description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "Genres":["Action","Adventure","Drama"],
+        "Image": "src/moviePhotos/The Lord of The Rings_The Fellowship of the Ring.jpg",
+        "Name": "The Lord of the Rings: The Fellowship of the Ring",
+        "Director":"Peter Jackson",
+        "Ranking":9,
+        "Year Released":2001
+      },
+      {
+        "Description": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
+        "Genres":["Adventure","Western"],
+        "Image": "src/moviePhotos/The Good, the Bad and the Ugly.jpg",
+        "Name": "The Good, the Bad and the Ugly",
+        "Director":"Sergio Leone",
+        "Ranking":10,
+        "Year Released":1966
+      }
+    ],
+    "TV Shows": [
+        {
+        "Description": "New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life that affect his mental state, leading him to seek professional psychiatric counseling.",
+        "Genres":["Crime","Drama"],
+        "Image": "src/tvShowPhotos/The Sopranos.jpg",
+        "Name": "The Sopranos",
+        "Creator":["David Chase"],
+        "Ranking":1,
+        "Seasons":"Seasons 1-6 ran from 1999 to 2007. The Sopranos did not air a season during 2005 and season 6 ran a part A and part B that ran in 2006 and 2007."
+        },
+        {
+        "Description": "The satiric adventures of a working-class family in the misfit city of Springfield.",
+        "Genres":["Animation", "Comedy"],
+        "Image": "src/tvShowPhotos/The Simpsons.jpg",
+        "Name": "The Simpsons",
+        "Creator":["James L. Brooks", "Matt Groening","Sam Simon"],
+        "Ranking":2,
+        "Seasons":"34 Seasons have aired since 1989 and the show is still airing to this day."
+        },
+        {
+        "Description": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
+        "Genres":["Crime","Drama","Thriller"],
+        "Image": "src/tvShowPhotos/Breaking Bad.jpg",
+        "Name": "Breaking Bad",
+        "Creator":"Vince Gilligan",
+        "Ranking":3,
+        "Seasons":"Seasons 1-5 ran yearly from 2008 to 2013."
+        },
+        {
+        "Description": "The Baltimore drug scene, as seen through the eyes of drug dealers and law enforcement.",
+        "Genres":["Crime","Drama","Thriller"],
+        "Image": "src/tvShowPhotos/The Wire.jpg",
+        "Name": "The Wire",
+        "Creator":"David Simon",
+        "Ranking":4,
+        "Seasons":"Seasons 1-5 ran from 2002 to 2008 and did not air in 2005 and 2007."
+        },
+        {
+        "Description": "A comedy series adapted from the award-winning play about a young woman trying to cope with life in London whilst coming to terms with a recent tragedy.",
+        "Genres":["Comedy","Drama"],
+        "Image": "src/tvShowPhotos/Fleabag.jpg",
+        "Name": "Fleabag",
+        "Creator":["Phoebe Waller-Bridge"],
+        "Ranking":5,
+        "Seasons":"Seasons 1-2 Aired in 2016 and 2019. After the second Season Phoebe, the creator, decided that it was time to end the series in order to avoid the slow death of shows like 'The Simpsons' and 'Friends'."
+        },
+        {
+        "Description": "The continuing misadventures of neurotic New York City stand-up comedian Jerry Seinfeld and his equally neurotic New York City friends.",
+        "Genres":["Comedy"],
+        "Image": "src/tvShowPhotos/Seinfeld.jpg",
+        "Name": "Seinfeld",
+        "Creator":["Larry David", "Jerry Seinfeld"],
+        "Ranking":6,
+        "Seasons":"Seasons 1-9 ran yearly from 1989 to 1998."
+        },
+        {
+        "Description": "A drama about one of New York's most prestigious ad agencies at the beginning of the 1960s, focusing on one of the firm's most mysterious but extremely talented ad executives, Donald Draper.",
+        "Genres":["Drama"],
+        "Image": "src/tvShowPhotos/Mad Men.jpg",
+        "Name": "Mad Men",
+        "Creator":["Matthew Weiner"],
+        "Ranking":7,
+        "Seasons":"Seasons 1-7 ran from 2007 to 2015 skipping 2011."
+        },
+        {
+        "Description": "",
+        "Genres":[""],
+        "Image": "src/tvShowPhotos/Cheers.jpg",
+        "Name": "",
+        "Creator":[""],
+        "Ranking":8,
+        "Seasons":"Seasons 1-6 ran from 1999 to 2006"
+        },
+        {
+        "Description": "",
+        "Genres":[""],
+        "Image": "",
+        "Name": "",
+        "Creator":[""],
+        "Ranking":9,
+        "Seasons":"Seasons 1-6 ran from 1999 to 2006"
+        },
+        {
+        "Description": "",
+        "Genres":[""],
+        "Image": "",
+        "Name": "",
+        "Creator":"",
+        "Ranking":10,
+        "Seasons":"Seasons 1-6 ran from 1999 to 2006"
+        }
+    ]
+  }
