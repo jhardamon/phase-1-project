@@ -1,8 +1,8 @@
 function fetchMovies() {
     // 
-    fetch('http://localhost:3000/Movies')
-    .then(response => response.json())
-    .then(movieData => renderMovies(movieData));
+  fetch('http://localhost:3000/Movies')
+  .then(response => response.json())
+  .then(movieData => renderMovies(movieData));
   };
 
 function fetchSeries() {
@@ -28,18 +28,9 @@ function renderList(list){
 });
 }
 
-function renderList(movies) {
-  const main = document.querySelector('main');
-  movies.forEach(movie => {
-    const h2 = document.createElement('h2');
-    h2.innerHTML = movie.name;
-    main.appendChild(h2);
-  });
-};
-
 function renderMovies(movies) {
-  const main = document.querySelector('main');
-  list.forEach(list => {
+  const main = document.querySelector('mainPage');
+  movies.forEach(list => {
     const h2 = document.createElement('h2');
     h2.innerHTML = list.name;
     main.appendChild(h2);
@@ -47,7 +38,7 @@ function renderMovies(movies) {
 };
 
 function renderSeries(series) {
-  const main = document.querySelector('main');
+  const main = document.querySelector('mainPage');
   series.forEach(series => {
     const h2 = document.createElement('h2');
     h2.innerHTML = series.name;
@@ -59,12 +50,12 @@ const init = () => {
   const inputForm = document.querySelector('form')
   inputForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const input = document.querySelector('input#searchByID');
+  const input = document.querySelector('input#myInput');
     fetch(`http://localhost:3000/`)
     .then(response => response.json())
     .then(data => {
-      const title = document.querySelector('section#searchEngine h4');
-      const summary = document.querySelector('section#movieDetails p');
+      const title = document.querySelector('h1');
+      const summary = document.querySelector('');
       title.innerText = data.title;
       summary.innerText = data.summary;
       });
