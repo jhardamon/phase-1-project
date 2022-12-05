@@ -16,12 +16,28 @@
  
 // document.addEventListener('DOMContentLoaded', init);
 
-const buildSortOptionsBar = () => {
-  capitalLetters = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-  alphaNumeric = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,...capitalLetters,0,1,2,3,4,5,6,7,8,9]
-  const textArea = document.querySelector("div#sortOptions")
-  textArea.
+//Sorting by starting alphanumeric character
+function sortByStartingCharacter(textInput){
+  if (textInput.startsWith() in capitalLetters || numbers){
+    
+  }
+}
 
+const buildSortOptionsToolBar = () => {
+  //
+  capitalLetters = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z];
+  sortOptionsIcons = ["All",...capitalLetters,"#","Movies","Series","Dark Mode","Light Mode"]
+  alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  numbers = ['0','1','2','3','4','5','6','7','8','9']
+  for (let option of sortOptionsIcons ){
+    const sortOptions = document.querySelector("div#sortOptions");
+    sortOptionsElement = sortOptions.createElement('a');
+    sortOptionsElement.setAttribute('class', 'topBarUnclicked');
+    sortOptionsElement.setAttribute('href', '#');
+    sortOptionsElement.setAttribute('textContent',`${option}`);
+    document.addEventListener("click", )
+};
+  
 };
 
 function fetchMovies() {
