@@ -125,7 +125,7 @@ function renderSeries(list) {
 
     const img = document.createElement('img');
     img.setAttribute('class','mainPhotos');
-    console.log(series.image);
+
     img.setAttribute('src',`src/photos/seriesPhotos/${series.name}.jpg`)
     const p = document.createElement('p');
     p.setAttribute('value',`${series.description}\n Director:${series.director} \n Genre(s):${series.genres} \n Ranking:${series.ranking} \n Seasons info:${series["seasons"]}`);
