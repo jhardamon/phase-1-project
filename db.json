@@ -3,7 +3,7 @@
       {
         "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
         "genres":["Drama"],
-        "image": "src/moviePhotos/The Shawshank Redemption.jpg",
+        "image": "src/photos/moviePhotos/The Shawshank Redemption.jpg",
         "name": "The Shawshank Redemption",
         "director":"Frank Darabont",
         "ranking":1,
@@ -12,7 +12,7 @@
       {
         "description": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
         "genres":["Crime","Drama"],
-        "image": "src/moviePhotos/The Godfather.jpg",
+        "image": "src/photos/moviePhotos/The Godfather.jpg",
         "name": "The Godfather",
         "director":"Francis Ford Coppola",
         "ranking":2, 
@@ -21,7 +21,7 @@
       {
         "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
         "genres":["Action","Crime","Drama","Thriller"],
-        "image": "src/moviePhotos/The Dark Knight.jpg",
+        "image": "src/photos/moviePhotos/The Dark Knight.jpg",
         "name": "The Dark Knight",
         "director":"Christopher Nolan",
         "ranking":3,
@@ -30,7 +30,7 @@
       {
         "description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
         "genres":["Crime","Drama"],
-        "image": "src/moviePhotos/The Godfather Part II.jpg",
+        "image": "src/photos/moviePhotos/The Godfather Part II.jpg",
         "name": "The Godfather Part II",
         "director":"Francis Ford Coppola",
         "ranking":4,
@@ -39,7 +39,7 @@
       {
         "description": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
         "genres":["Crime","Drama"],
-        "image": "src/moviePhotos/12 Angry Men.jpg",
+        "image": "src/photos/moviePhotos/12 Angry Men.jpg",
         "name": "12 Angry Men",
         "director":"Sidney Lumet",
         "ranking":5,
@@ -48,7 +48,7 @@
       {
         "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
         "genres":["Biography","Drama","History"],
-        "image": "src/moviePhotos/Schindlers List.jpg",
+        "image": "src/photos/moviePhotos/Schindler's List.jpg",
         "name": "Schindler's List",
         "director":"Steven Spielberg",
         "ranking":6,
@@ -58,8 +58,8 @@
       {
         "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
         "genres":["Action","Adventure"],
-        "image": "src/moviePhotos/The Lord of the Rings_The Return of The King.jpg",
-        "name": "The Lord of the Rings: The Return of the King",
+        "image": "src/photos/moviePhotos/The Lord of the Rings The Return of The King.jpg",
+        "name": "The Lord of the Rings The Return of The King",
         "director":"Peter Jackson",
         "ranking":7,
         "Year Released":2003
@@ -67,7 +67,7 @@
       {
         "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
         "genres":["Crime","Drama"],
-        "image": "src/moviePhotos/Pulp Fiction.jpg",
+        "image": "src/photos/moviePhotos/Pulp Fiction.jpg",
         "name": "Pulp Fiction",
         "director":"Quentin Tarantino",
         "ranking":8,
@@ -76,8 +76,8 @@
       {
         "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
         "genres":["Action","Adventure","Drama"],
-        "image": "src/moviePhotos/The Lord of The Rings_The Fellowship of the Ring.jpg",
-        "name": "The Lord of the Rings: The Fellowship of the Ring",
+        "image": "src/photos/moviePhotos/The Lord of The Rings The Fellowship of the Ring.jpg",
+        "name": "The Lord of the Rings The Fellowship of the Ring",
         "director":"Peter Jackson",
         "ranking":9,
         "Year Released":2001
@@ -85,18 +85,18 @@
       {
         "description": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
         "genres":["Adventure","Western"],
-        "image": "src/moviePhotos/The Good, the Bad and the Ugly.jpg",
+        "image": "src/photos/moviePhotos/The Good, the Bad and the Ugly.jpg",
         "name": "The Good, the Bad and the Ugly",
         "director":"Sergio Leone",
         "ranking":10,
         "Year Released":1966
       }
     ],
-    "Series": [
+    "series": [
         {
         "description": "New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life that affect his mental state, leading him to seek professional psychiatric counseling.",
         "genres":["Crime","Drama"],
-        "image": "src/seriesPhotos/The Sopranos.jpg",
+        "image": "src/photos/seriesPhotos/The Sopranos.jpg",
         "name": "The Sopranos",
         "creator":["David Chase"],
         "ranking":1,
@@ -105,7 +105,7 @@
         {
         "description": "The satiric adventures of a working-class family in the misfit city of Springfield.",
         "genres":["Animation", "Comedy"],
-        "image": "src/seriesPhotos/The Simpsons.jpg",
+        "image": "src/photos/seriesPhotos/The Simpsons.jpg",
         "name": "The Simpsons",
         "creator":["James L. Brooks", "Matt Groening","Sam Simon"],
         "ranking":2,
@@ -114,7 +114,7 @@
         {
         "description": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
         "genres":["Crime","Drama","Thriller"],
-        "image": "src/seriesPhotos/Breaking Bad.jpg",
+        "image": "src/photos/seriesPhotos/Breaking Bad.jpg",
         "name": "Breaking Bad",
         "creator":["Vince Gilligan"],
         "ranking":3,
@@ -123,7 +123,7 @@
         {
         "description": "The Baltimore drug scene, as seen through the eyes of drug dealers and law enforcement.",
         "genres":["Crime","Drama","Thriller"],
-        "image": "src/seriesPhotos/The Wire.jpg",
+        "image": "src/photos/seriesPhotos/The Wire.jpg",
         "name": "The Wire",
         "creator":["David Simon"],
         "ranking":4,
@@ -132,7 +132,7 @@
         {
         "description": "A comedy series adapted from the award-winning play about a young woman trying to cope with life in London whilst coming to terms with a recent tragedy.",
         "genres":["Comedy","Drama"],
-        "image": "src/seriesPhotos/Fleabag.jpg",
+        "image": "src/photos/seriesPhotos/Fleabag.jpg",
         "name": "Fleabag",
         "creator":["Phoebe Waller-Bridge"],
         "ranking":5,
@@ -141,7 +141,7 @@
         {
         "description": "The continuing misadventures of neurotic New York City stand-up comedian Jerry Seinfeld and his equally neurotic New York City friends.",
         "genres":["Comedy"],
-        "image": "src/seriesPhotos/Seinfeld.jpg",
+        "image": "src/photos/seriesPhotos/Seinfeld.jpg",
         "name": "Seinfeld",
         "creator":["Larry David", "Jerry Seinfeld"],
         "ranking":6,
@@ -150,7 +150,7 @@
         {
         "description": "A drama about one of New York's most prestigious ad agencies at the beginning of the 1960s, focusing on one of the firm's most mysterious but extremely talented ad executives, Donald Draper.",
         "genres":["Drama"],
-        "image": "src/seriesPhotos/Mad Men.jpg",
+        "image": "src/photos/seriesPhotos/Mad Men.jpg",
         "name": "Mad Men",
         "creator":["Matthew Weiner"],
         "ranking":7,
@@ -159,7 +159,7 @@
         {
         "description": "The regulars of the Boston bar 'Cheers' share their experiences and lives with each other while drinking or working at the bar where everybody knows your name.",
         "genres":["Comedy","Drama"],
-        "image": "src/seriesPhotos/Cheers.jpg",
+        "image": "src/photos/seriesPhotos/Cheers.jpg",
         "name": "Cheers",
         "creator":["James Burrows","Glen Charles","Les Charles"],
         "ranking":8,
@@ -168,7 +168,7 @@
         {
         "description": "Earn and his cousin Alfred, based in Atlanta, try to make their way in the world through the rap scene. Along the way they come face-to-face with social and economic issues touching on race, relationships, poverty, status, and parenthood.",
         "genres":["Comedy","Drama","Music"],
-        "image": "src/seriesPhotos/Atlanta.jpg",
+        "image": "src/photos/seriesPhotos/Atlanta.jpg",
         "name": "Atlanta",
         "creator":["Donald Glover"],
         "ranking":9,
@@ -177,7 +177,7 @@
         {
         "description": "The lives and trials of a young single woman and her friends, both at work and at home.",
         "genres":["Comedy"],
-        "image": "src/seriesPhotos/The Mary Tyler Moore Show.jpg",
+        "image": "src/photos/seriesPhotos/The Mary Tyler Moore Show.jpg",
         "name": "The Mary Tyler Moore Show",
         "creator":["James L. Brooks", "Alan Burns"],
         "ranking":10,
