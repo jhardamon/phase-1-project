@@ -1,45 +1,49 @@
-body {
-  background-color: rgb(124, 124, 124);
-  margin: 0% 50%
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
+
+body:{
+  background-color: chocolate;
+}
+
 a + a {
-margin-left: 17px;
+  margin: 6px
 }
 
-a + input{
-margin-left: 20px;
+a + form {
+  margin : 10px
 }
 
-a + button{
-margin-left: 20px;
+div#list{
+  color: rgb(25, 8, 115);
+  margin:250px;
+  text-align:center;
+  list-style:none;
+}
+#webPage{
+  min-height: 100%;
+  height: 100%;
+  position: relative;
 }
 
-button + a {
-  margin-left: 20px;
-}
-
-div#item{
-  background-color: rgb(0, 0, 0);
-  color: rgb(244, 243, 243);
-  margin:0% 50%;
-  text-align:center
-  
-}
-
-div#webTitle{
+#webTitle{
   text-align:center;
   margin: 50px 0px 0px 0px;
   color: rgb(116, 1, 1);
 }
 
-div#sortOptions{
-  /* border-radius: 50px; */
+#sortOptions{
+  border-radius: 0px;
   background-color: rgb(0, 0, 0);
-  color: rgb(255, 0, 0);
+  color: rgb(118, 59, 59);
   text-align:center;
-  margin: 1em;
+  width: auto;
+  margin: auto;
+  border: 1px solid red; 
   padding: 1em;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -51,4 +55,12 @@ div#sortOptions{
 }
 .topBarClicked {
   color: rgb(70, 157, 24);
+} 
+
+.darkMode{
+  color: rgb(0, 0, 0)
+};
+
+.lightMode{
+  color: rgb(0, 0, 0)
 }

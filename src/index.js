@@ -1,36 +1,53 @@
 const init = () => {
-  fetch(`http://localhost:3000`)
-  .then(response => response.json())
-  .then(data => {
-  //  buildSortOptionsToolBar();
-    fetchAll();
-     });
-  };
+  pageCreation()
+  buildSortOptionsToolBar();
+  fetchAll();
+     };
+
 document.addEventListener('DOMContentLoaded', init);
 
+function pageCreation(){
 
+const title = document.querySelector('title');
+title.setAttribute('value','searchTube');
 
-//Sorting by starting alphanumeric character
+const body = document.querySelector('body');
 
-// function sortByStartingCharacter(textInput){  
-//   textInput.filter("",
-//   () => (if (character in numbers){
+const divWebPage = document.createElement('div');
+divWebPage.setAttribute('id','webPage');
 
-//   }
+const divSortOptions = document.createElement('div');
+divSortOptions.setAttribute('id','sortOptions');
 
-//   else if (character in capitalLetters){
-//     character = character.toLowerCase();
+const divWebTitle = document.createElement('div');
+const h1WebTitle = document.createElement('h1');
 
+divWebTitle.setAttribute('class', 'websiteName');
+h1WebTitle.setAttribute('textContent','searchTube');
 
-//   }
+const divList = document.createElement('div');
+divList.setAttribute('id','list');
 
-//   else{
+divWebPage.appendChild(divSortOptions);
+divWebPage.appendChild(divWebTitle);
+divWebPage.appendChild(divList);
 
-//     };))
+divWebTitle.appendChild(h1WebTitle);
+body.appendChild(divWebPage);
 
-// }
-
-
+} 
+//Sorting alphabetically
+function sortAlphabetically(array){
+  array.sort(function (a, b) {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -1;
+    }
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  });
+};
 
 function buildSortOptionsToolBar() {
   //Multi-use reference Variables
@@ -42,41 +59,98 @@ function buildSortOptionsToolBar() {
   const alphanumeric = [...alphabet, ...numbers];
   const sortOptions = document.querySelector("div#sortOptions");
 
-  const buildSearchBar = () => {
-    const searchBarForm = document.createElement("form");
-    searchBarForm.setAttribute('name','Search');
-    
-    const searchInput = document.createElement("input");
-    searchBarForm.appendChild(searchInput);
-    searchInput.setAttribute('name','Search');
-    searchInput.setAttribute('type','TEXT')
-    searchInput.setAttribute('value','Search')
-    sortOptions.appendChild(searchBarForm);
-    ;}
 
-  for (let option of sortOptionsIcons ){
-    sortOptionsElement = document.createElement('a');
-    sortOptionsElement.setAttribute('class', 'topBarUnclicked');
-    sortOptionsElement.setAttribute('href', '#');
-    sortOptionsElement.setAttribute('textContent',`${option}`);
+//Sort by= starting character
+function sortByStartingCharacter(textInput){  
+  character = textInput.startsWith();
+
+  if (character in numbers){
+
+  }
+
+  else if (character in capitalLetters){
+    character = character.toLowerCase();
+
+
+  }
+
+  else{
+    console.log('Input must be alphanumeric.')
+    };
+
+}
+
+function buildSearchBar(){
+  let searchBarForm = document.createElement("form");
+  searchBarForm.setAttribute('id', 'searchBar');
+  searchBarForm.setAttribute('action','http://localhost:3000/all')
+  searchBarForm.setAttribute('method','GET');
+
+  let searchInput = document.createElement("input");
+  
+  searchInput.setAttribute('name', 'searchBar');
+  searchInput.setAttribute('id','searchBar');
+  searchInput.setAttribute('type', 'TEXT');
+  searchInput.setAttribute('value', 'Search');
+
+  let button = document.createElement("button");
+  button.textContent ='Search';
+
+  searchBarForm.appendChild(searchInput);
+  searchBarForm.appendChild(button);
+  sortOptions.appendChild(searchBarForm);
+
+}
+
+function handleSearchBar() {
+    form = document.querySelector('form');
+    form.addEventListener('submit',(event) =>{
+    event.preventDefault();
+    //console.log(event.target.searchBar.value);
+    form.reset();
+    })}
     
+function searchEngine(){
+
+}
+
+function buildSortIcons(){
+  for (let option of sortOptionsIcons ){
+    let a = document.createElement('a');
+    a.setAttribute('id',`${option}`);
+    a.setAttribute('class', 'topBarUnclicked');
+    a.setAttribute('href', '#');
+    a.textContent = `${option}`;
+    const sortOptions = document.querySelector('div#sortOptions' )
+    sortOptions.appendChild(a);
     document.addEventListener("click", (event) => {
       event.preventDefault();
-      event.setAttribute("class","topBarClicked")
-      if (option in wordsAndPhrases){
-
-      } 
-      else if (option in capitalLetters)
-         sortByStartingCharacter(option);
-    }
-  )
+      console.log(document.querySelector(`a#${option}`));
+    });
+  };
 };
+
+function handleSortIcons(){
+  let findIcons = document.querySelector('a');
+  let sortIcons = findIcons.parentElement.childNodes;
+  let icons = [...sortIcons].pop();
+  for (option in icons){
+    document.addEventListener("click", (event) => {
+      //console.log(event);
+      event.preventDefault();
+    })
+  };
+  
+
+  
+};
+
+
+buildSortIcons();
+handleSortIcons();
 buildSearchBar();
-
+handleSearchBar();
 };
-//Referenced for page manipulation
-const item = document.querySelector("div#item");
-const mainPageForList = document.querySelector("div#mainPage");
 
 //GET requests and list creation
 function fetchMovies() {
@@ -89,21 +163,41 @@ function fetchMovies() {
 function renderMovies(list) {
   list.movies.forEach(movie => {
 
-    const div = document.createElement('div');
-    div.setAttribute('class','item')
+    const li = document.createElement('li');
+    li.setAttribute('class','item');
 
-    const h2 = document.createElement('h1');
-    h2.innerHTML = movie.name;
+    const ul = document.createElement('ul');
+    ul.setAttribute('class','list');
+
+    const h1 = document.createElement('h1');
+    h1.textContent = `${movie.name}`;
 
     const img = document.createElement('img');
     img.setAttribute('class','mainPhotos');
     img.setAttribute('src',`src/photos/moviePhotos/${movie.name}.jpg`);
 
     const p = document.createElement('p');
-    p.setAttribute('value',`${movie.description}\n Director:${movie.director} \n Genre(s):${movie.genres} \n Ranking:${movie.ranking} \n Year Released:${movie["Year Released"]}`);
-    div.appendChild(h2);
-    div.appendChild(img);
-    div.appendChild(p)
+    p.textContent =`Description: ${movie.description}`;
+    const p1 = document.createElement('p');
+    p1.textContent = `Director: ${movie.director}`;
+    const p2 = document.createElement('p');
+    p2.textContent = `Genre(s): ${movie.genres}`; 
+    const p3 = document.createElement('p');
+    p3.textContent = `Movie Ranking: ${movie.ranking}`;
+    const p4 = document.createElement('p');
+    p4.textContent = `Year Released: ${movie["Year Released"]}`;
+
+    let div = document.querySelector('div#list');
+    
+    li.appendChild(ul)
+    ul.appendChild(h1);
+    ul.appendChild(img);
+    ul.appendChild(p);
+    ul.appendChild(p1);
+    ul.appendChild(p2);
+    ul.appendChild(p3);
+    ul.appendChild(p4);
+    div.appendChild(li);
   });
 };
 //
@@ -117,37 +211,59 @@ function fetchSeries() {
 function renderSeries(list) {
   list.series.forEach(series => {
 
-    const div = document.createElement('div');
-    div.setAttribute('class','item')
+    const li = document.createElement('li');
+    li.setAttribute('class','item');
 
-    const h2 = document.createElement('h1');
-    h2.innerHTML = series.name;
+    const ul = document.createElement('ul');
+    ul.setAttribute('class','list');
+
+    const h1 = document.createElement('h1');
+    h1.textContent =`${series.name}`;
 
     const img = document.createElement('img');
     img.setAttribute('class','mainPhotos');
-
     img.setAttribute('src',`src/photos/seriesPhotos/${series.name}.jpg`)
+    
+
     const p = document.createElement('p');
-    p.setAttribute('value',`${series.description}\n Director:${series.director} \n Genre(s):${series.genres} \n Ranking:${series.ranking} \n Seasons info:${series["seasons"]}`);
-    div.appendChild(h2);
-    div.appendChild(img);
-    div.appendChild(p)
+    p.textContent =`Description: ${series.description}`;
+    const p1 = document.createElement('p');
+    p1.textContent = `Creator(s): ${series.creator}`;
+    const p2 = document.createElement('p');
+    p2.textContent = `Genre(s): ${series.genres}`; 
+    const p3 = document.createElement('p');
+    p3.textContent = `Series Ranking: ${series.ranking}`;
+    const p4 = document.createElement('p');
+    p4.textContent = `Season Info: ${series["seasons"]}`
+
+   let div = document.querySelector('div#list');
+    
+   li.appendChild(ul)
+   ul.appendChild(h1);
+   ul.appendChild(img);
+   ul.appendChild(p);
+   ul.appendChild(p1);
+   ul.appendChild(p2);
+   ul.appendChild(p3);
+   ul.appendChild(p4);
+   div.appendChild(li);
   });
 };
 //Fetch all
 function fetchAll() {
-  fetch('http://localhost:3000/all/')
+  fetch('http://localhost:3000/all')
   .then(response => response.json())
   .then(data => renderAll(data))
   .catch(error => console.log(error));
   };
 
 function renderAll(data) {
-  const movieObject = data.all.movies;
-  const seriesObject = data.all.series;
 
-  renderMovies(movieObject);
-  renderSeries(seriesObject);
+  let all = [...data.movies,...data.series];
+  alphaAll = sortAlphabetically(all);
+  //all.foreach(,)
+  renderMovies(data);
+  renderSeries(data);
 }
 //Update requests
 
