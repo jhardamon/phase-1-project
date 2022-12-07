@@ -17,8 +17,12 @@ a + form {
   margin : 10px
 }
 
+h1 {
+text-decoration: underline
+}
+
 div#list{
-  color: rgb(25, 8, 115);
+  color: rgb(0, 0, 0);
   margin:250px;
   text-align:center;
   list-style:none;
