@@ -5,8 +5,9 @@ img {
   width: 50%;
 }
 
-body {
-  background-color: rgb(125, 64, 20);
+
+a {
+  margin: 10px;
 }
 
 a + a {
@@ -21,62 +22,112 @@ h1 {
 text-decoration: underline;
 }
 
+p {
+  color: none
+}
+
 div#webPage{
-  margin-top:5%;
+  margin-top:10%;
   text-align:center;
   position:relative;
 }
 
 li{
-  color: rgb(0, 0, 0);
+  color: rgb(238, 226, 97);
   text-align:center;
   list-style:none;
+  margin:5%;
 }
 
 form#searchBar{
-  margin: auto;
+  margin: 10px;
   position: relative;
   text-align:right;
 }
 
-
-.websiteName{
-text-align:center;
-color: rgb(0, 165, 168);
-position:relative;
-text-decoration: none;
-}
-
-div#sortOptions{
-  border-radius: 0px;
-  background-color: rgb(0, 0, 0);
-  width: auto;
-  margin: auto;
-  border: 1px solid red; 
-  padding: 1em;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; 
-}
 
 a#sortOptions{
   text-align:center;
 
 } 
 
-.topBarUnclicked {
+
+
+
+body#dark {
+  background-color: rgb(125, 64, 20);
+}
+
+li.websiteNameDark{
+  text-align:center;
+  color: rgb(0, 165, 168);
+  position:relative;
+  text-decoration: none;
+  }
+  
+  div#sortOptionsDark{
+    border-radius: 0px;
+    background-color: rgb(0, 0, 0);
+    width: auto;
+    margin: auto;
+    border: 1px solid red; 
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+  }
+
+.topBarUnclickedDark {
   color: rgb(255, 0, 0);
 }
-.topBarClicked {
+.topBarClickedDark {
   color: rgb(70, 157, 24);
 } 
 
-.darkMode{
-  color: rgb(0, 0, 0);
-};
-
-.lightMode{
-  color: rgb(0, 0, 0);
+.itemDark{
+  color: rgb(238, 226, 97);
+  text-align:center;
+  list-style:none;
+  margin:5%;
 }
 
+
+
+body#light {
+  background-color: rgb(255, 200, 161)
+}
+
+.websiteNameLight{
+  text-align:center;
+  color: rgb(45, 52, 52);
+  position:relative;
+  text-decoration: none;
+  }
+  
+  div#sortOptionsLight{
+    border-radius: 0px;
+    background-color: rgb(4, 166, 202);
+    width: auto;
+    margin: auto;
+    border: 1px solid rgb(13, 59, 32); 
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+  }
+
+.topBarUnclickedLight {
+  color: rgb(21, 0, 255);
+}
+.topBarClickedLight {
+  color: rgb(132, 231, 78);
+} 
+
+.itemLight{
+  color: rgb(238, 226, 97);
+  text-align:center;
+  list-style:none;
+  margin:5%;
+}

@@ -3,7 +3,7 @@ const init = () => {
   pageCreation()
   buildSortOptionsToolBar();
   fetchAll(renderAll);
-     };
+};
 document.addEventListener('DOMContentLoaded', init);
 
 
@@ -14,21 +14,22 @@ const title = document.querySelector('title');
 title.setAttribute('value','Welcome to searchTube');
 
 const body = document.querySelector('body');
-body.textContent =null;
+body.innerHTML ='';
+body.setAttribute('id','dark');
 
 const divWebPage = document.createElement('div');
 divWebPage.setAttribute('id','webPage');
 
 const divSortOptions = document.createElement('div');
-divSortOptions.setAttribute('id','sortOptions');
+divSortOptions.setAttribute('id','sortOptionsDark');
 
 const divWebTitle = document.createElement('div')
 const h1WebTitle = document.createElement('h1');
 const liWebTitle = document.createElement('li');
 
 divWebTitle.setAttribute('class', 'webTitle');
-liWebTitle.setAttribute('class','websiteName');
-h1WebTitle.setAttribute('class', 'websiteName');
+liWebTitle.setAttribute('class','webSiteNameDark');
+h1WebTitle.setAttribute('class', 'webSiteNameDark');
 h1WebTitle.textContent='Welcome to searchTube';
 
 const pWebTitle = document.createElement('p');
@@ -48,25 +49,55 @@ divWebPage.appendChild(divList);
 
 body.appendChild(divWebPage);
 
-} 
+};
 
+function darkMode(){
+  let bodyLight = document.querySelector('body#light');
+  if ( bodyLight !== undefined){
+    
+    bodyLight.setAttribute('id','dark');
+    
+    let divWebSiteNameLight = document.querySelector('div.websiteNameLight');
+    divWebSiteNameLight.setAttribute('class','websiteNameDark');
 
+    let divSortOptionsLight = document.querySelector('div#sortOptionsLight');
+    divSortOptionsLight.setAttribute('id','sortOptionsDark');
+
+    let liItemDark = document.querySelectorAll('.itemLight');
+    liItemDark.setAttribute('class','itemDark');
+    
+  };
+};
+
+function lightMode(){
+  let bodyDark = document.querySelector('body#dark');
+  if ( bodyDark !== undefined){
+    
+    bodyDark.setAttribute('id','light');
+    
+    let divWebSiteNameDark = document.querySelector('li.webSiteNameDark');
+    divWebSiteNameDark.setAttribute('class','websiteNameLight');
+
+    let divSortOptionsDark = document.querySelector('div#sortOptionsDark');
+    divSortOptionsDark.setAttribute('id','sortOptionsLight');
+
+    let liItemDark = document.querySelectorAll('.itemDark');
+    liItemDark.setAttribute('class','itemLight');
+    
+  };
+};
 //Sorting functions and navbar creation
 const sortByMovie = () => {
-  let list = document.querySelector('div#list');
-  list.innerHTML= '';
-  fetchMovies();
+  fetchAll(renderMovies);
 };
 
 const sortBySeries = () => {
-  let list =document.querySelector('div#list');
-  list.innerHTML = '';
-  fetchSeries();
+  fetchAll(renderSeries);
 }
 
 const sortByNumbers = () => {
-  let list =document.querySelector('div#list');
-  list.innerHTML = '';
+  let divList =document.querySelector('div#list');
+  divList.innerHTML = '';
   fetch('http://localhost:3000/all')
   .then(resp => resp.json())
   .then(data => {
@@ -89,18 +120,18 @@ function buildSortOptionsToolBar() {
   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   const numbers = ['0','1','2','3','4','5','6','7','8','9'];
   const alphanumeric = [...alphabet, ...numbers];
-  const sortOptions = document.querySelector("div#sortOptions");
+  const sortOptions = document.querySelector("div#sortOptionsDark");
 
 
 //Sort by= starting character
 function sortByStartingCharacter(textInput){  
   character = textInput.startsWith();
-
+  for (character in textInput){
   if (character in numbers){
     
   }
 
-  else if (character in capitalLetters){
+  else if (character in alphabet){
     character = character.toLowerCase();
     let movies = sortByMovie();
     let series = sortBySeries();
@@ -113,7 +144,7 @@ function sortByStartingCharacter(textInput){
     console.log(error);
     };
 
-}
+}}
 
 function buildSearchBar(){
   let searchBarForm = document.createElement("form");
@@ -173,21 +204,44 @@ function buildSortIcons(){
   for (let option of sortOptionsIcons ){
     let a = document.createElement('a');
     a.setAttribute('id',`${option}`);
-    a.setAttribute('class', 'topBarUnclicked');
+    a.setAttribute('class', 'topBarUnclickedDark');
     a.setAttribute('href', '#');
     a.textContent = `${option}`;
+    console.log(option)
+
+
+
     a.addEventListener("click", (event) => {
-      a.className='topBarClicked';
+      a.className='topBarClickedDark';
       event.preventDefault();
-      function sortWordsAndPhrases(){
-        stringValue = a.textContent;
-        if (stringValue in sortOptionsIcons){
-          console.log(stringValue);
+      function sortWordsAndPhrases(event){
+        let stringValue = event.target.id;
+        switch(stringValue) {
+          case "0-9": 
+            sortByNumbers();
+            break;
+          case "All":
+            fetchAll(renderAll);
+            break;
+          case "Movies":
+            sortByMovie(); 
+            break
+          case "Series":
+            sortBySeries();
+            break
+          case "Dark":
+            darkMode();
+            break
+          case "Light":
+            lightMode();
+            break
+          }
         }
-      };
-      sortWordsAndPhrases();
-    });
-    const sortOptions = document.querySelector('div#sortOptions' )
+        sortWordsAndPhrases(event);
+      }
+    );
+
+    const sortOptions = document.querySelector('div#sortOptionsDark')
     sortOptions.appendChild(a);
   };
 };
@@ -199,19 +253,15 @@ handleSearchBar();
 
 
 //GET requests and list creation
-function fetchMovies() {
-  fetch('http://localhost:3000/all')
-  .then(response => response.json())
-  .then(data => renderMovies(data))
-  .catch(error => console.log(error));
-  };
 
 function renderMovies(list) {
+  divList = document.querySelector('div#list');
+  divList.innerHTML = '';
   list.movies.sort((a, b) => a.name.localeCompare(b.name));
   list.movies.forEach(movie => {
 
     const li = document.createElement('li');
-    li.setAttribute('class','item');
+    li.setAttribute('class','itemDark');
 
     const ul = document.createElement('ul');
     ul.setAttribute('class','list');
@@ -248,20 +298,15 @@ function renderMovies(list) {
     div.appendChild(li);
   });
 };
-//
-function fetchSeries() {
-  fetch('http://localhost:3000/all')
-  .then(response => response.json())
-  .then(data => renderSeries(data))
-  .catch(error => console.log(error));
-  };
 
 function renderSeries(list) {
+  divList = document.querySelector('div#list');
+  divList.innerHTML = '';
   list.series.sort((a, b) => a.name.localeCompare(b.name));
   list.series.forEach(series => {
 
     const li = document.createElement('li');
-    li.setAttribute('class','item');
+    li.setAttribute('class','itemDark');
 
     const ul = document.createElement('ul');
     ul.setAttribute('class','list');
@@ -300,27 +345,29 @@ function renderSeries(list) {
   });
 };
 
-function fetchAll(callBack) {
-  fetch('http://localhost:3000/all')
-  .then(response => response.json())
-  .then(data => callBack(data))
-  .catch(error => console.log(error));
-  };
-
 function renderAll(data) {
 
   const all = [...data.movies,...data.series];
   all.sort((a, b) => a.name.localeCompare(b.name));
   renderData(all);
-}
+};
+
+function fetchAll(callBack) {
+  fetch('http://localhost:3000/all')
+  .then(response => response.json())
+  .then(data => callBack(data))
+  .catch(error => console.log(error));
+};
 
 function renderData(array){
+  divList = document.querySelector('div#list');
+  divList.innerHTML = '';
   array.forEach(item => {
     
     if (item.seasons !== undefined){
       
       const li = document.createElement('li');
-      li.setAttribute('class','item');
+      li.setAttribute('class','itemDark');
       
       const ul = document.createElement('ul');
       ul.setAttribute('class','list');
@@ -361,7 +408,7 @@ function renderData(array){
   }
   else {
     const li = document.createElement('li');
-    li.setAttribute('class','item');
+    li.setAttribute('class','itemDark');
 
     const ul = document.createElement('ul');
     ul.setAttribute('class','list');
@@ -399,7 +446,7 @@ function renderData(array){
   }
 
 });
-}
+};
 //Update requests
 
 //Patch requests
