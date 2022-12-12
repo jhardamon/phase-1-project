@@ -52,39 +52,49 @@ body.appendChild(divWebPage);
 };
 
 function darkMode(){
-  let bodyLight = document.querySelector('body#light');
-  console.log(bodyLight)
-  if ( bodyLight !== undefined){
-    console.log(document.querySelector('body'));
-    console.log(bodyLight);
-    bodyLight.setAttribute('id','dark');
+  let body = document.querySelector('body');
+  if ( body !== undefined){
     
-    let divWebSiteNameLight = document.querySelector('div.websiteNameLight');
-    divWebSiteNameLight.setAttribute('class','websiteNameDark');
+    body.setAttribute('id','dark');
 
+    let liWebSiteNameLight = document.querySelector('li');
+    liWebSiteNameLight.setAttribute('class','websiteNameDark');
+    
+    let h1WebSiteNameLight = document.querySelector('h1');
+    h1WebSiteNameLight.setAttribute('class','websiteNameDark');
+
+    let pLight = document.querySelector('p');
+    pLight.setAttribute('class','dark');
+    
     let divSortOptionsLight = document.querySelector('div#sortOptionsLight');
     divSortOptionsLight.setAttribute('id','sortOptionsDark');
 
-    let liItemLight = document.querySelectorAll('.itemLight');
-    liItemLight.setAttribute('class','itemDark');
+    let liItemLight = document.querySelectorAll('li.itemLight');
+    liItemLight.forEach((item) => item.setAttribute('class','itemDark'));
     
   };
 };
 
 function lightMode(){
-  let bodyDark = document.querySelector('body#dark');
-  if ( bodyDark !== undefined){
+  let body = document.querySelector('body');
+  if ( body !== undefined){
     
-    bodyDark.setAttribute('id','light');
-    
-    let divWebSiteNameDark = document.querySelector('.webSiteNameDark');
-    divWebSiteNameDark.setAttribute('class','websiteNameLight');
+    body.setAttribute('id','light');
 
+    let liWebSiteNameDark = document.querySelector('li');
+    liWebSiteNameDark.setAttribute('class','websiteNameLight');
+    
+    let h1WebSiteNameDark = document.querySelector('h1');
+    h1WebSiteNameDark.setAttribute('class','websiteNameLight');
+
+    let pDark = document.querySelector('p');
+    pDark.setAttribute('class','light');
+    
     let divSortOptionsDark = document.querySelector('div#sortOptionsDark');
     divSortOptionsDark.setAttribute('id','sortOptionsLight');
 
-    let liItemDark = document.querySelectorAll('.itemDark');
-    liItemDark.setAttribute('class','itemLight');
+    let liItemDark = document.querySelectorAll('li.itemDark');
+    liItemDark.forEach((item) => item.setAttribute('class','itemLight'));
     
   };
 };
@@ -126,26 +136,26 @@ function buildSortOptionsToolBar() {
 
 
 //Sort by= starting character
-function sortByStartingCharacters(textInput,number){
+// function sortByStartingCharacters(textInput,number){
 
-  let characters = textInput.splice(0,number);
-  let character = textInput.startswith();
-  console.log('')
-  for (character of textInput){
-  if (character in numbers){
-    console.log('Sorting by starting with a number works!');
-  }
+//   let characters = textInput.splice(0,number);
+//   let character = textInput.startswith();
+//   console.log('')
+//   for (character of textInput){
+//   if (character in numbers){
+//     console.log('Sorting by starting with a number works!');
+//   }
 
-  else if (character in alphabet){
-    character = character.toLowerCase();
-    console.log('Sorting by starting with a letter works!');
-  }
-  else{
-    error = 'Input must be alphanumeric.';
-    console.log(error);
-    };
+//   else if (character in alphabet){
+//     character = character.toLowerCase();
+//     console.log('Sorting by starting with a letter works!');
+//   }
+//   else{
+//     error = 'Input must be alphanumeric.';
+//     console.log(error);
+//     };
 
-}}
+// }}
 
 function buildSearchBar(){
   let searchBarForm = document.createElement("form");
