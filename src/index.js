@@ -53,8 +53,10 @@ body.appendChild(divWebPage);
 
 function darkMode(){
   let bodyLight = document.querySelector('body#light');
+  console.log(bodyLight)
   if ( bodyLight !== undefined){
-    
+    console.log(document.querySelector('body'));
+    console.log(bodyLight);
     bodyLight.setAttribute('id','dark');
     
     let divWebSiteNameLight = document.querySelector('div.websiteNameLight');
@@ -63,8 +65,8 @@ function darkMode(){
     let divSortOptionsLight = document.querySelector('div#sortOptionsLight');
     divSortOptionsLight.setAttribute('id','sortOptionsDark');
 
-    let liItemDark = document.querySelectorAll('.itemLight');
-    liItemDark.setAttribute('class','itemDark');
+    let liItemLight = document.querySelectorAll('.itemLight');
+    liItemLight.setAttribute('class','itemDark');
     
   };
 };
@@ -75,7 +77,7 @@ function lightMode(){
     
     bodyDark.setAttribute('id','light');
     
-    let divWebSiteNameDark = document.querySelector('li.webSiteNameDark');
+    let divWebSiteNameDark = document.querySelector('.webSiteNameDark');
     divWebSiteNameDark.setAttribute('class','websiteNameLight');
 
     let divSortOptionsDark = document.querySelector('div#sortOptionsDark');
@@ -124,20 +126,19 @@ function buildSortOptionsToolBar() {
 
 
 //Sort by= starting character
-function sortByStartingCharacter(textInput){  
-  character = textInput.startsWith();
-  for (character in textInput){
+function sortByStartingCharacters(textInput,number){
+
+  let characters = textInput.splice(0,number);
+  let character = textInput.startswith();
+  console.log('')
+  for (character of textInput){
   if (character in numbers){
-    
+    console.log('Sorting by starting with a number works!');
   }
 
   else if (character in alphabet){
     character = character.toLowerCase();
-    let movies = sortByMovie();
-    let series = sortBySeries();
-    console.log(movies);
-    console.log(series);
-    return 
+    console.log('Sorting by starting with a letter works!');
   }
   else{
     error = 'Input must be alphanumeric.';
@@ -207,18 +208,27 @@ function buildSortIcons(){
     a.setAttribute('class', 'topBarUnclickedDark');
     a.setAttribute('href', '#');
     a.textContent = `${option}`;
-    console.log(option)
-
-
 
     a.addEventListener("click", (event) => {
       a.className='topBarClickedDark';
       event.preventDefault();
       function sortWordsAndPhrases(event){
         let stringValue = event.target.id;
+
+        function isItALetter(){
+          letter = stringValue.toLowerCase();
+          if (letter in alphabet){
+            console.log(letter)
+            return TRUE;
+          };
+        }
+
         switch(stringValue) {
           case "0-9": 
             sortByNumbers();
+            break;
+          case isItALetter():
+            console.log('Its a letter!');
             break;
           case "All":
             fetchAll(renderAll);
