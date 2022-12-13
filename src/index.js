@@ -62,9 +62,6 @@ function darkMode(){
     
     let h1WebSiteNameLight = document.querySelector('h1');
     h1WebSiteNameLight.setAttribute('class','websiteNameDark');
-
-    let pLight = document.querySelector('p');
-    pLight.setAttribute('class','dark');
     
     let divSortOptionsLight = document.querySelector('div#sortOptionsLight');
     divSortOptionsLight.setAttribute('id','sortOptionsDark');
@@ -86,9 +83,6 @@ function lightMode(){
     
     let h1WebSiteNameDark = document.querySelector('h1');
     h1WebSiteNameDark.setAttribute('class','websiteNameLight');
-
-    let pDark = document.querySelector('p');
-    pDark.setAttribute('class','light');
     
     let divSortOptionsDark = document.querySelector('div#sortOptionsDark');
     divSortOptionsDark.setAttribute('id','sortOptionsLight');
@@ -99,13 +93,9 @@ function lightMode(){
   };
 };
 //Sorting functions and navbar creation
-const sortByMovie = () => {
-  fetchAll(renderMovies);
-};
+const sortByMovie = () => fetchAll(renderMovies);
 
-const sortBySeries = () => {
-  fetchAll(renderSeries);
-}
+const sortBySeries = () =>  fetchAll(renderSeries);
 
 const sortByNumbers = () => {
   let divList =document.querySelector('div#list');
@@ -135,27 +125,26 @@ function buildSortOptionsToolBar() {
   const sortOptions = document.querySelector("div#sortOptionsDark");
 
 
-//Sort by= starting character
-// function sortByStartingCharacters(textInput,number){
+function sortByStartingCharacters(textInput,number){
 
-//   let characters = textInput.splice(0,number);
-//   let character = textInput.startswith();
-//   console.log('')
-//   for (character of textInput){
-//   if (character in numbers){
-//     console.log('Sorting by starting with a number works!');
-//   }
+  let characters = textInput.splice(0,number);
+  let character = textInput.startswith();
+  console.log('')
+  for (character of textInput){
+  if (character in numbers){
+    console.log('Sorting by starting with a number works!');
+  }
 
-//   else if (character in alphabet){
-//     character = character.toLowerCase();
-//     console.log('Sorting by starting with a letter works!');
-//   }
-//   else{
-//     error = 'Input must be alphanumeric.';
-//     console.log(error);
-//     };
+  else if (character in alphabet){
+    character = character.toLowerCase();
+    console.log('Sorting by starting with a letter works!');
+  }
+  else{
+    error = 'Input must be alphanumeric.';
+    console.log(error);
+    };
 
-// }}
+}}
 
 function buildSearchBar(){
   let searchBarForm = document.createElement("form");
@@ -179,7 +168,7 @@ function buildSearchBar(){
   
 }
 
-const handleSearchBar = () => {
+const handleSearchBar = (textInput) => {
     form = document.querySelector('form');
     form.addEventListener('submit',(event) =>{
     event.preventDefault();
@@ -225,14 +214,17 @@ function buildSortIcons(){
       function sortWordsAndPhrases(event){
         let stringValue = event.target.id;
 
-        function isItALetter(){
+        function isItALetter(stringValue){
           letter = stringValue.toLowerCase();
-          if (letter in alphabet){
-            console.log(letter)
-            return TRUE;
+          alphabet.forEach((letter) => {
+          if (letter === stringValue ){
+            console.log(letter);
+            return true;
           };
-        }
+        });
+      };
 
+    
         switch(stringValue) {
           case "0-9": 
             sortByNumbers();
