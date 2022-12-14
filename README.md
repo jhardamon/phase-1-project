@@ -1,6 +1,6 @@
 # phase-1-project
 
-My phase 1 project utilizes a database created using a db.json file from information and images of movies and tv series that could be found on IMDB. This project focuses on sorting the database information based on the names of the movies and series with plans to grow into a more robust platform focused on sorting functionality to 
+My phase 1 project utilizes a database created using a db.json file from information and images of movies and tv series that could be found on IMDB. This project focuses on sorting the database information based on the names of the movies and series with plans to grow into a more robust platform focused on sorting functionality.
 
 ## Installing and using the project
 This program was intended to be used in conjunction with json-server. Before installing this software please ensure that json-server is installed on the device. 
