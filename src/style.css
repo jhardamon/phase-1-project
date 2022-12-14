@@ -30,7 +30,7 @@ div#webPage{
 }
 
 li{
-  color: rgb(238, 226, 97);
+  color: rgb(0, 0, 0);
   text-align:center;
   list-style:none;
   margin:5%;
@@ -57,7 +57,7 @@ body#dark {
 
 li.websiteNameDark{
   text-align:center;
-  color: rgb(238, 226, 97);
+  color: rgb(0, 0, 0);
   position:relative;
   text-decoration: none;
   }
@@ -83,7 +83,7 @@ li.websiteNameDark{
 } 
 
 .itemDark{
-  color: rgb(238, 226, 97);
+  color: rgb(0, 0, 0);
   text-align:center;
   list-style:none;
   margin:5%;
@@ -103,7 +103,7 @@ body#light {
   
   div#sortOptionsLight{
     border-radius: 0px;
-    background-color: rgb(4, 166, 202);
+    background-color: rgb(0, 98, 120);
     width: auto;
     margin: auto;
     border: 1px solid rgb(13, 59, 32); 

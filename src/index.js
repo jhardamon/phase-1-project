@@ -6,6 +6,8 @@ const init = () => {
 };
 document.addEventListener('DOMContentLoaded', init);
 
+const numbers = ['0','1','2','3','4','5','6','7','8','9'];
+const capitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 //javascript creation of html skeleton
 function pageCreation(){
@@ -119,11 +121,9 @@ function sortAllAlphabetically(array){
 
 function buildSortOptionsToolBar() {
   //Multi-use reference Variables
-  const capitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   const wordsAndPhrases = ["0-9","All","Movies","Series","Dark","Light"]
   const sortOptionsIcons = [...capitalLetters,...wordsAndPhrases]
   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  const numbers = ['0','1','2','3','4','5','6','7','8','9'];
   const alphanumeric = [...alphabet, ...numbers];
   const sortOptions = document.querySelector("div#sortOptionsDark");
 
@@ -195,12 +195,15 @@ function buildSortIcons(){
     a.textContent = `${option}`;
 
     a.addEventListener("click", (event) => {
+      const allAnchors = document.querySelectorAll('a');
+      allAnchors.forEach((item) => item.className = 'topBarUnclickedDark');
       a.className='topBarClickedDark';
-      event.preventDefault();
       function sortWordsAndPhrases(event){
         let stringValue = event.target.id;
-
         switch(stringValue) {
+          case "0-9":
+            fetchAll(renderAll,stringValue);
+            break;
           case "All":
             fetchAll(renderAll);
             break;
@@ -217,13 +220,7 @@ function buildSortIcons(){
             lightMode();
             break;
           default:
-            let startingCharacter = stringValue;
-            if (capitalLetters.includes(stringValue)){
-              fetchAll(renderAll,startingCharacter)
-            }
-            else{
-              console.log('number');
-            }
+            fetchAll(renderAll,stringValue);
           }
         }
         sortWordsAndPhrases(event);
@@ -335,18 +332,27 @@ function renderSeries(list) {
 };
 
 function renderAll(data,startingCharacter) {
-  if (startingCharacter !== undefined){
-    const all = [...data.movies,...data.series];
-    const startingCharacterAll = []
+  const all = [...data.movies,...data.series];
+  if (startingCharacter === "0-9"){
+    const startingCharacterAllOfNumbers = []
     all.forEach((item)=>{
-      console.log(item.name)
+      if ( numbers.includes(item.name[0])){
+        startingCharacterAllOfNumbers.push(item);
+        console.log(startingCharacterAllOfNumbers)
+    };
+    renderData(startingCharacterAllOfNumbers);
+  });
+  }
+  else if (capitalLetters.includes(startingCharacter)){
+    const startingCharacterAllOfAlphabet = [];
+    all.forEach((item)=>{
       if (item.name.startsWith(startingCharacter)){
-        startingCharacterAll.push(item);
-        renderData(startingCharacterAll)
+        startingCharacterAllOfAlphabet.push(item);
+        console.log(startingCharacterAllOfAlphabet)
     }
+    renderData(startingCharacterAllOfAlphabet);
   })}
   else {
-  const all = [...data.movies,...data.series];
   all.sort((a, b) => a.name.localeCompare(b.name));
   renderData(all);
 };
@@ -455,7 +461,6 @@ function renderData(array){
     ul.appendChild(p4);
     div.appendChild(li);
   }
-
 });
 };
 
