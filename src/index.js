@@ -105,7 +105,6 @@ function buildSortOptionsToolBar() {
   const wordsAndPhrases = ["0-9","All","Movies","Series","Dark","Light"]
   const sortOptionsIcons = [...capitalLetters,...wordsAndPhrases]
   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  const alphanumeric = [...alphabet,...capitalLetters, ...numbers];
   const sortOptions = document.querySelector("div#sortOptionsDark");
 
 function buildSearchBar(){
