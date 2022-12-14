@@ -6,6 +6,7 @@ const init = () => {
 };
 document.addEventListener('DOMContentLoaded', init);
 
+//Reference varables for sort functions
 const numbers = ['0','1','2','3','4','5','6','7','8','9'];
 const capitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -92,27 +93,12 @@ function lightMode(){
     let liItemDark = document.querySelectorAll('li.itemDark');
     liItemDark.forEach((item) => item.setAttribute('class','itemLight'));
     
-  }
-  else {
-    console.log('You are already in light mode.')
   };
 };
-//Sorting functions and navbar creation
+//Sorting functions and sort icons creation
 const sortByMovie = () => fetchAll(renderMovies);
 
 const sortBySeries = () =>  fetchAll(renderSeries);
-
-const sortByNumbers = () => {
-  let divList =document.querySelector('div#list');
-  divList.innerHTML = '';
-  fetch('http://localhost:3000/all')
-  .then(resp => resp.json())
-  .then(data => {
-    const all = [...data.movies,...data.series];
-
-  })
-  .catch(error => console.log(error));
-};
 
 function sortAllAlphabetically(array){
   array.sort((a, b) => a.name.localeCompare(b.name));
@@ -124,7 +110,7 @@ function buildSortOptionsToolBar() {
   const wordsAndPhrases = ["0-9","All","Movies","Series","Dark","Light"]
   const sortOptionsIcons = [...capitalLetters,...wordsAndPhrases]
   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  const alphanumeric = [...alphabet, ...numbers];
+  const alphanumeric = [...alphabet,...capitalLetters, ...numbers];
   const sortOptions = document.querySelector("div#sortOptionsDark");
 
 function buildSearchBar(){
@@ -149,40 +135,31 @@ function buildSearchBar(){
   
 };
 
-const handleSearchBar = (textInput) => {
+const handleSearchBar = () => {
     form = document.querySelector('form');
     form.addEventListener('submit',(event) =>{
     event.preventDefault();
     let request = event.target.searchBar.value;
-    request.foreach( character =>{
-      if (not(character in alphanumeric)){
-        error = 'Input must be using alphanumeric character!'
-        setTimeout(alert(error),"3000")
-      }
-      else{
-        fetch("http://localhost:3000/all")
-        .then(resp => resp.json())
-        .then(data => {
-          let all = [...data.movies, ...data.series];
-
-
-        
-        })
-        .catch(error => console.log(error));
-      }
-      
-      });
-    form.reset()
+    searchEngine(request);
+    form.reset();
   });
 };
 
-function searchEngine(array){
-  array.forEach( (string) => {
-
-  }
-
-  )
-
+function searchEngine(string){
+  fetch('http://localhost:3000/all')
+  .then(response => response.json())
+  .then(data => {
+    const all = [...data.movies,...data.series];
+    let searchResults = []
+    all.forEach((item) => {
+      const title = item.name.toLowerCase();
+      if (title.includes(string.toLowerCase())){
+        searchResults.push(item);
+      }
+    });
+    renderData(searchResults);
+  })
+  .catch(error => console.log(error));
 };
 
 function buildSortIcons(){
@@ -333,27 +310,27 @@ function renderSeries(list) {
 
 function renderAll(data,startingCharacter) {
   const all = [...data.movies,...data.series];
+  all.sort((a, b) => a.name.localeCompare(b.name));
   if (startingCharacter === "0-9"){
     const startingCharacterAllOfNumbers = []
     all.forEach((item)=>{
       if ( numbers.includes(item.name[0])){
         startingCharacterAllOfNumbers.push(item);
-        console.log(startingCharacterAllOfNumbers)
     };
     renderData(startingCharacterAllOfNumbers);
   });
   }
+
   else if (capitalLetters.includes(startingCharacter)){
     const startingCharacterAllOfAlphabet = [];
     all.forEach((item)=>{
       if (item.name.startsWith(startingCharacter)){
         startingCharacterAllOfAlphabet.push(item);
-        console.log(startingCharacterAllOfAlphabet)
     }
     renderData(startingCharacterAllOfAlphabet);
   })}
+  
   else {
-  all.sort((a, b) => a.name.localeCompare(b.name));
   renderData(all);
 };
 };
@@ -362,9 +339,7 @@ function fetchAll(callBack,startingCharacter) {
   if (startingCharacter != undefined){
     fetch('http://localhost:3000/all')
     .then(response => response.json())
-    .then(data => {  
-      callBack(data,startingCharacter)
-    })
+    .then(data => callBack(data,startingCharacter))
     .catch(error => console.log(error));
   }
   else {
@@ -378,7 +353,7 @@ function fetchAll(callBack,startingCharacter) {
 function renderData(array){
   divList = document.querySelector('div#list');
   divList.innerHTML = '';
-
+  array.sort((a, b) => a.name.localeCompare(b.name));
   array.forEach(item => {
     
     if (item.seasons !== undefined){
