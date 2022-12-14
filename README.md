@@ -42,7 +42,3 @@ If you have any suggestions I am open to them and appreciate any feedback you ma
 
 ##Next Steeps
 I plan to build every type of sort and search functionality as I learn more into this program as a way to retain the knowledge.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
