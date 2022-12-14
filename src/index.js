@@ -100,11 +100,6 @@ const sortByMovie = () => fetchAll(renderMovies);
 
 const sortBySeries = () =>  fetchAll(renderSeries);
 
-function sortAllAlphabetically(array){
-  array.sort((a, b) => a.name.localeCompare(b.name));
-
-};
-
 function buildSortOptionsToolBar() {
   //Multi-use reference Variables
   const wordsAndPhrases = ["0-9","All","Movies","Series","Dark","Light"]
@@ -439,7 +434,3 @@ function renderData(array){
 });
 };
 
-
-//Update requests
-
-//Patch requests
