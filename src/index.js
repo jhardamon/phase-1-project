@@ -90,6 +90,9 @@ function lightMode(){
     let liItemDark = document.querySelectorAll('li.itemDark');
     liItemDark.forEach((item) => item.setAttribute('class','itemLight'));
     
+  }
+  else {
+    console.log('You are already in light mode.')
   };
 };
 //Sorting functions and navbar creation
@@ -124,28 +127,6 @@ function buildSortOptionsToolBar() {
   const alphanumeric = [...alphabet, ...numbers];
   const sortOptions = document.querySelector("div#sortOptionsDark");
 
-
-function sortByStartingCharacters(textInput,number){
-
-  let characters = textInput.splice(0,number);
-  let character = textInput.startswith();
-  console.log('')
-  for (character of textInput){
-  if (character in numbers){
-    console.log('Sorting by starting with a number works!');
-  }
-
-  else if (character in alphabet){
-    character = character.toLowerCase();
-    console.log('Sorting by starting with a letter works!');
-  }
-  else{
-    error = 'Input must be alphanumeric.';
-    console.log(error);
-    };
-
-}}
-
 function buildSearchBar(){
   let searchBarForm = document.createElement("form");
   searchBarForm.setAttribute('id', 'searchBar');
@@ -166,7 +147,7 @@ function buildSearchBar(){
   searchBarForm.appendChild(button);
   sortOptions.appendChild(searchBarForm);
   
-}
+};
 
 const handleSearchBar = (textInput) => {
     form = document.querySelector('form');
@@ -195,7 +176,12 @@ const handleSearchBar = (textInput) => {
   });
 };
 
-function searchEngine(){
+function searchEngine(array){
+  array.forEach( (string) => {
+
+  }
+
+  )
 
 };
 
@@ -214,39 +200,30 @@ function buildSortIcons(){
       function sortWordsAndPhrases(event){
         let stringValue = event.target.id;
 
-        function isItALetter(stringValue){
-          letter = stringValue.toLowerCase();
-          alphabet.forEach((letter) => {
-          if (letter === stringValue ){
-            console.log(letter);
-            return true;
-          };
-        });
-      };
-
-    
         switch(stringValue) {
-          case "0-9": 
-            sortByNumbers();
-            break;
-          case isItALetter():
-            console.log('Its a letter!');
-            break;
           case "All":
             fetchAll(renderAll);
             break;
           case "Movies":
             sortByMovie(); 
-            break
+            break;
           case "Series":
             sortBySeries();
-            break
+            break;
           case "Dark":
             darkMode();
-            break
+            break;
           case "Light":
             lightMode();
-            break
+            break;
+          default:
+            let startingCharacter = stringValue;
+            if (capitalLetters.includes(stringValue)){
+              fetchAll(renderAll,startingCharacter)
+            }
+            else{
+              console.log('number');
+            }
           }
         }
         sortWordsAndPhrases(event);
@@ -357,23 +334,45 @@ function renderSeries(list) {
   });
 };
 
-function renderAll(data) {
-
+function renderAll(data,startingCharacter) {
+  if (startingCharacter !== undefined){
+    const all = [...data.movies,...data.series];
+    const startingCharacterAll = []
+    all.forEach((item)=>{
+      console.log(item.name)
+      if (item.name.startsWith(startingCharacter)){
+        startingCharacterAll.push(item);
+        renderData(startingCharacterAll)
+    }
+  })}
+  else {
   const all = [...data.movies,...data.series];
   all.sort((a, b) => a.name.localeCompare(b.name));
   renderData(all);
 };
-
-function fetchAll(callBack) {
-  fetch('http://localhost:3000/all')
-  .then(response => response.json())
-  .then(data => callBack(data))
-  .catch(error => console.log(error));
 };
+
+function fetchAll(callBack,startingCharacter) {
+  if (startingCharacter != undefined){
+    fetch('http://localhost:3000/all')
+    .then(response => response.json())
+    .then(data => {  
+      callBack(data,startingCharacter)
+    })
+    .catch(error => console.log(error));
+  }
+  else {
+    fetch('http://localhost:3000/all')
+    .then(response => response.json())
+    .then(data => callBack(data))
+    .catch(error => console.log(error));
+};
+}
 
 function renderData(array){
   divList = document.querySelector('div#list');
   divList.innerHTML = '';
+
   array.forEach(item => {
     
     if (item.seasons !== undefined){
@@ -459,6 +458,8 @@ function renderData(array){
 
 });
 };
+
+
 //Update requests
 
 //Patch requests
