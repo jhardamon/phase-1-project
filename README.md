@@ -27,7 +27,7 @@ A skeleton of the html structure is built using pagecreation, which manipulates 
 The buldSortOptionsToolBar is a very packed function incorporating many of the sort features as well as creation of the tool bar. 
 The fetchAll() function takes a callback function and displays the movie and series information on the page based on the chosen callback. This assists with Sort functionality.
 
-Theses three functions are calle in the init function when the DOMContentLoaded event listener is triggered.
+Theses three functions are called in the init function when the DOMContentLoaded event listener is triggered.
 
 Functionality is not guaranteed if modifications are made to these three functions.
 
