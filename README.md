@@ -40,5 +40,5 @@ Dark and light mode is bugged so I changed all of the text color to black in dar
 
 If you have any suggestions I am open to them and appreciate any feedback you may have for improvements.
 
-##Next Steeps
+##Next Steps
 I plan to build every type of sort and search functionality as I learn more into this program as a way to retain the knowledge.
