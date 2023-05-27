@@ -331,13 +331,13 @@ function renderAll(data,startingCharacter) {
 
 function fetchAll(callBack,startingCharacter) {
   if (startingCharacter != undefined){
-    fetch('http://localhost:3000/all')
+    fetch('https://jhardamon.github.io/phase-1-project/all')
     .then(response => response.json())
     .then(data => callBack(data,startingCharacter))
     .catch(error => console.log(error));
   }
   else {
-    fetch('http://localhost:3000/all')
+    fetch('https://jhardamon.github.io/phase-1-project/all')
     .then(response => response.json())
     .then(data => callBack(data))
     .catch(error => console.log(error));
